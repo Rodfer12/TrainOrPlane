@@ -1,0 +1,134 @@
+:root {
+	--background: #f3f0e9;
+	--ink: #17211b;
+	--muted: #657067;
+	--accent: #d65b38;
+	--accent-dark: #a94228;
+	--panel: #e2e8de;
+	--line: rgba(23, 33, 27, 0.14);
+	font-family: Arial, Helvetica, sans-serif;
+	color: var(--ink);
+	background: var(--background);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	min-width: 320px;
+}
+
+main {
+	overflow: hidden;
+}
+
+.hero,
+.app {
+	min-height: 100vh;
+	padding: clamp(32px, 8vw, 110px) max(24px, 8vw);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.hero {
+	position: relative;
+	background:
+		radial-gradient(circle at 85% 20%, rgba(214, 91, 56, 0.2), transparent 28rem),
+		var(--background);
+}
+
+.hero::after {
+	content: "EUROPE  •  ASIA";
+	position: absolute;
+	right: 8vw;
+	bottom: 10vh;
+	color: var(--line);
+	font-size: clamp(1rem, 3vw, 2rem);
+	font-weight: 700;
+	letter-spacing: 0.2em;
+	transform: rotate(-90deg) translateX(100%);
+	transform-origin: right bottom;
+}
+
+.eyebrow {
+	margin: 0 0 20px;
+	color: var(--accent-dark);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+	max-width: 760px;
+}
+
+h1,
+h2 {
+	margin: 0;
+	font-weight: 700;
+	letter-spacing: -0.06em;
+	line-height: 0.95;
+}
+
+h1 {
+	max-width: 850px;
+	font-size: clamp(4rem, 14vw, 11rem);
+}
+
+h2 {
+	font-size: clamp(3rem, 8vw, 7rem);
+}
+
+.hero__text,
+.app p:not(.eyebrow) {
+	margin: 28px 0 36px;
+	color: var(--muted);
+	font-size: clamp(1.05rem, 2vw, 1.4rem);
+	line-height: 1.5;
+}
+
+.button {
+	display: inline-flex;
+	align-items: center;
+	gap: 28px;
+	width: fit-content;
+	padding: 17px 22px;
+	border-radius: 999px;
+	background: var(--accent);
+	color: #fff;
+	font-size: 1rem;
+	font-weight: 700;
+	text-decoration: none;
+	transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.button:hover,
+.button:focus-visible {
+	background: var(--accent-dark);
+	transform: translateY(-2px);
+}
+
+.button:focus-visible {
+	outline: 3px solid var(--ink);
+	outline-offset: 4px;
+}
+
+.app {
+	background: var(--panel);
+}
+
+@media (max-width: 600px) {
+	.hero::after {
+		display: none;
+	}
+}
